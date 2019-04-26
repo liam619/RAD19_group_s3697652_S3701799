@@ -1,0 +1,26 @@
+<% provide(:title, "Home") %>
+<div class="center jumbotron">
+    <h1>Welcome to Your Course App!</h1>
+
+    <h2>This is sample of the web pages</h2>
+
+    <%= link_to signup_path, class: "btn btn-lg btn-danger" do %> <%= fa_icon "user-plus" %> Sign up now <% end %>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h4>View Course as Guest User</h4>
+
+        <p>Browse and view courses as a guest and sign up later.</p>
+
+        <%= link_to courses_path, class: "btn btn-success" do %> <%= fa_icon "book" %> Browse all courses <% end %>
+    </div>
+
+    <div class="col-sm-4">
+        <h4>Sign in to your account</h4>
+
+        <p>Update your courses, rate courses, view coordinator informations</p>
+
+        <%= link_to login_path, class: "btn btn-success" do %> <%= fa_icon "sign-in" %> Log in to your account <% end %>
+    </div>
+</div>

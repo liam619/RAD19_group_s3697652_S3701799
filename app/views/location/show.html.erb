@@ -1,0 +1,8 @@
+<% provide(:title, @location.name) %>
+
+<div class="btm-line">
+  <h1>Courses scheduled in location <%= yield :title%></h1>
+</div>
+
+<%= render 'shared/navbar' %>
+<%= render 'shared/courses_list' %>
