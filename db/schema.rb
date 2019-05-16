@@ -32,11 +32,6 @@ ActiveRecord::Schema.define(version: 20190425102126) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "courses_categories", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "category_id"
-  end
-
   create_table "courses_locations", force: :cascade do |t|
     t.integer "course_id"
     t.integer "location_id"
