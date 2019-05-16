@@ -4,23 +4,33 @@
 
     <h2>This is sample of the web pages</h2>
 
-    <%= link_to signup_path, class: "btn btn-lg btn-danger" do %> <%= fa_icon "user-plus" %> Sign up now <% end %>
+    <% if !logged_in? %>
+    <%= link_to signup_path, class: "btn btn-lg btn-danger" do %> <%= fa_icon "user-plus", text: "Sign up now" %> <% end %>
+    <% end %>
 </div>
 
 <div class="row">
     <div class="col-sm-4">
-        <h4>View Course as Guest User</h4>
+        <h4>View Course as <% if logged_in? %> Coordinator <% else %> Guest User <% end %></h4>
 
         <p>Browse and view courses as a guest and sign up later.</p>
 
-        <%= link_to courses_path, class: "btn btn-success" do %> <%= fa_icon "book" %> Browse all courses <% end %>
+        <%= link_to courses_path, class: "btn btn-success" do %> <%= fa_icon "book", text: "Browse all courses" %> <% end %>
     </div>
 
-    <div class="col-sm-4">
+  <div class="col-sm-4">
+    <% if logged_in? %>
+        <h4>View profile</h4>
+
+        <p>Update your courses, rate courses and view your information's</p>
+
+        <%= link_to current_user, class: "btn btn-success" do %> <%= fa_icon "", text: "View Profile"%> <% end %>
+    <% else %>
         <h4>Sign in to your account</h4>
 
-        <p>Update your courses, rate courses, view coordinator informations</p>
+        <p>Update your courses, rate courses, view coordinator information's</p>
 
-        <%= link_to login_path, class: "btn btn-success" do %> <%= fa_icon "sign-in" %> Log in to your account <% end %>
-    </div>
+        <%= link_to login_path, class: "btn btn-success" do %> <%= fa_icon "sign-in", text: "Log in to your account" %> <% end %>
+    <% end %>
+  </div>
 </div>

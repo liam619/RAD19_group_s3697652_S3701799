@@ -20,6 +20,10 @@
               <% @categories.each do |c| %>
                 <li><%= link_to c.name, c %></li>
               <% end %>
+              <% if logged_in? %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Create Category", "#" %></li>
+              <% end %>
             </ul>
           </li>
 
@@ -31,9 +35,14 @@
               <% @locations.each do |l| %>
                 <li><%= link_to l.name, l %></li>
               <% end %>
+              <% if logged_in? %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Create Location", "#" %></li>
+              <% end %>
             </ul>
           </li>
           <% if logged_in? %>
+            <li><%= link_to "#" do %><%= fa_icon "file" %> New Course <% end %></li>
             <li class="dropdown" role="presentation">
               <%= link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do %>
                 <%= fa_icon "user-circle" %> <%= current_user.name %> <span class="caret"></span>
