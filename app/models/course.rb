@@ -9,8 +9,8 @@ class Course < ApplicationRecord
   has_many :like_courses, dependent: :destroy
   has_many :dislike_courses, dependent: :destroy
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length:  { minimum:  10 }
+  validates :description, presence: true, length: { minimum: 30 }
   validates :categories, presence: true
   validates :locations, presence: true
   mount_uploader :image, ImageUploader
