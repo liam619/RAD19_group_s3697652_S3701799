@@ -46,6 +46,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
   # For liked and unliked button
   def validateLogin
     (!current_user.nil?) ? 'btn' : 'btn disabled'

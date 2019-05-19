@@ -34,11 +34,11 @@
         <p>Created <%= time_ago_in_words(c.created_at) %></p>
 
         <p class="p-align-right">
-          <%= link_to "#", class: validateLogin, title: "Downvote" do %>
-            <%= fa_icon "thumbs-down" %> 0
+          <%= link_to dislikecourse_path(c.id), method: :post, class: validateLogin, title: "Dislike" do %>
+            <%= fa_icon "thumbs-down", text: "#{do_count("dislike", c.id)}" %>
           <% end %>
-          <%= link_to "#", class: validateLogin, title: "Upvote" do %>
-            <%= fa_icon "thumbs-up" %> 0
+          <%= link_to likecourse_path(c.id), method: :post, class: validateLogin, title: "Like" do %>
+            <%= fa_icon "thumbs-up", text: "#{do_count("like", c.id)}" %>
           <% end %>
         </p>
       </div>

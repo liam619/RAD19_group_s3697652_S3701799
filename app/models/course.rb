@@ -6,6 +6,9 @@ class Course < ApplicationRecord
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :prerequisites
 
+  has_many :like_courses, dependent: :destroy
+  has_many :dislike_courses, dependent: :destroy
+
   validates :name, presence: true
   validates :description, presence: true
   validates :categories, presence: true
