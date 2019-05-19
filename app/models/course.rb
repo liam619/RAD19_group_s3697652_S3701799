@@ -20,5 +20,4 @@ class Course < ApplicationRecord
       errors.add(:image, "should be less than 5MB")
     end
   end
-
 end
