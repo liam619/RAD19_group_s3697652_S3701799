@@ -9,5 +9,7 @@ class ApplicationController < ActionController::Base
     @categories = Category.all.order(name: :asc)
 
     @locations = Location.all.order(name: :asc)
+
+    @courses = Course.order(name: :asc)
   end
 end

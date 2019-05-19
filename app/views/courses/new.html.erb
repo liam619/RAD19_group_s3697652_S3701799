@@ -1,2 +1,36 @@
-<h1>Courses#new</h1>
-<p>Find me in app/views/courses/new.html.erb</p>
+<% provide(:title, "course") %>
+<div class="btm-line">
+  <h1>Create a new <%= yield :title %></h1>
+</div>
+
+<%= render 'shared/error_messages', option: @course %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@course, url: courses_path) do |form| %>
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "input_box form-control", placeholder: "Programming 1" %>
+
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "input_box form-control" %>
+
+      <%= form.label :categories %>
+      <%= form.select :categories, options_from_collection_for_select(@categories, :id, :name, @course.categories.ids), { :include_hidden => false, :class => "form-control"}, multiple: true %>
+      <%#= form.select(:categories, Category.all.collect {|c| [c.name, c.id]}, {:include_hidden => false, :class => "selectpicker", :selected => params[:id]}, {:multiple => true}) %>
+
+
+      <%= form.label :prerequisites %>
+      <%= form.select :prerequisites, options_from_collection_for_select(@courses, :id, :name, @course.prerequisites.ids), { :include_hidden => false, :class => "form-control"},  multiple: true %>
+      <%#= form.select(:prerequisites, Course.all.collect {|c| [c.name, c.id]}, {:include_hidden => false, :class => "selectpicker", :selected => params[:id]}, {:multiple => true}) %>
+
+      <%= form.label :locations %>
+      <%= form.select :locations, options_from_collection_for_select(@locations, :id, :name, @course.locations.ids), { :include_hidden => false}, multiple: true %>
+      <%#= form.select(:locations, Location.all.collect {|l| [l.name, l.id]}, {:include_hidden => false, :class => "selectpicker form-control", :selected => params[:id]}, {:multiple => true}) %>
+
+      <%= form.label :image %>
+      <%= form.file_field :image, accept: 'image/jpeg, image/gif, image/png'%>
+
+      <%= form.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
