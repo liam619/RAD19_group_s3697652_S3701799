@@ -11,24 +11,28 @@ User.create!(name: "William Low",
              password: "@123Qwerty",
              password_confirmation: "@123Qwerty")
 
-rad = Course.create!(name: 'Rapid Application Development', user_id: 1, description: 'This is sample')
-capstone = Course.create!(name: 'Capstone Project', user_id: 1, description: 'This is sample')
-webPro = Course.create!(name: 'Web Programming', user_id: 1, description: 'This is sample')
-advPro = Course.create!(name: 'Advance Programming', user_id: 1, description: 'This is sample')
-ios = Course.create!(name: 'Advanced iOS/OSX Programming', user_id: 1, description: 'This is sample')
-exp3year = Course.create!(name: '3 years iOS or relevant experience', user_id: 1, description: 'This is sample')
+rad = Course.new(name: 'Rapid Application Development', user_id: 1, description: 'This is sample')
+capstone = Course.new(name: 'Capstone Project', user_id: 1, description: 'This is sample')
+webPro = Course.new(name: 'Web Programming', user_id: 1, description: 'This is sample')
+advPro = Course.new(name: 'Advance Programming', user_id: 1, description: 'This is sample')
+ios = Course.new(name: 'Advanced iOS/OSX Programming', user_id: 1, description: 'This is sample')
+exp3year = Course.new(name: '3 years iOS or relevant experience', user_id: 1, description: 'This is sample')
 
 webDev = Category.create!(name: 'Web Development')
 fullStackDev = Category.create!(name: 'Full Stack Dev')
 iosEng = Category.create!(name: 'iOS Engineering')
+indExp = Category.create!(name: "Industrial Experience")
 
-preq1 = Prerequisite.create!(id: webDev.id)
+preq1 = Prerequisite.create!(id: webPro.id)
 preq2 = Prerequisite.create!(id: advPro.id)
 preq3 = Prerequisite.create!(id: exp3year.id)
 
 rad.categories << webDev
 capstone.categories << fullStackDev
 ios.categories << iosEng
+webPro.categories << webDev
+advPro.categories << fullStackDev
+exp3year.categories << indExp
 
 rad.prerequisites << preq1
 capstone.prerequisites << preq2
@@ -43,3 +47,13 @@ rad.locations << location1
 rad.locations << location2
 capstone.locations << location3
 ios.locations << location4
+exp3year.locations << location1
+webPro.locations << location2
+advPro.locations << location3
+
+rad.save
+capstone.save
+webPro.save
+advPro.save
+ios.save
+exp3year.save
