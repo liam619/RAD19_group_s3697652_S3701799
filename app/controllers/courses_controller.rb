@@ -16,9 +16,6 @@ class CoursesController < ApplicationController
   def create
     new_course = params.require(:course).permit(:name, :description, :image, :prerequisites => [], :categories => [], :locations => [])
 
-    puts "before-------->"
-    puts new_course
-
     # Set course created by current user
     new_course[:user_id] = current_user.id
 
@@ -34,9 +31,6 @@ class CoursesController < ApplicationController
     if new_course[:prerequisites].present?
       new_course[:prerequisites].collect! {|p| Prerequisite.where(id: p).first_or_initialize} # New prerequisite if not found
     end
-
-    puts "After------------------"
-    puts new_course
 
     @course = Course.new(new_course)
 

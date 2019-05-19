@@ -8,7 +8,7 @@ class DislikecoursesController < ApplicationController
     meta = {user_id: current_user.id, course_id: params[:id]}
 
     # Verify is the user already like/dislike the course
-    if (LikeCourse.exist?(meta) || DislikeCourse.exists?(meta))
+    if (LikeCourse.exists?(meta) || DislikeCourse.exists?(meta))
       flash[:danger] = "You have already liked/disliked for #{course.name}."
     else
       # Add a new dislike to the course from current user
