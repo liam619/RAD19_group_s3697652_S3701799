@@ -9,5 +9,17 @@ class ApplicationController < ActionController::Base
     @categories = Category.all.order(name: :asc)
 
     @locations = Location.all.order(name: :asc)
+
+    @courses = Course.order(name: :asc)
+  end
+
+  private
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_path
+    end
   end
 end

@@ -161,3 +161,25 @@ input {
 .p-align-right {
   text-align: right;
 }
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.edit-button {
+  margin-left: 70px;
+}
+
+.btn-margin-top {
+  margin-top: 5px;
+}

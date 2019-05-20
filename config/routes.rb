@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # route for like/dislike course
+  post   'courses/:id/likecourse',     to: 'likecourses#new', as: 'likecourse'
+  post   'courses/:id/dislikecourse',  to: 'dislikecourses#new', as: 'dislikecourse'
+
   resources :users
   resources :courses
   resources :categories
