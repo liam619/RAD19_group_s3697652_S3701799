@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.valid?
-      UserMailer.contact_us(@contact).deliver
+      UserMailer.contact_us(@contact).deliver_now
       flash[:success] = "Email sent!"
       redirect_back(fallback_location: root_path)
     else
