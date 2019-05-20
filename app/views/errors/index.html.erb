@@ -1,0 +1,11 @@
+<% provide(:title, "Error") %>
+
+<div class="btm-line">
+  <h1><%= yield :title %> <%= statuscode %></h1>
+</div>
+
+<div class="error-message">
+  <span class="glyphicon glyphicon-question-sign icon-size" aria-hidden="true"></span>
+  <p> <%= message %> </p>
+</div>
+

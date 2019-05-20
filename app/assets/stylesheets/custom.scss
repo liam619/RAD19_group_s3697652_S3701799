@@ -143,8 +143,8 @@ input {
   }
 }
 
-.table{
-  border : 1px solid #ddd;
+.table {
+  border: 1px solid #ddd;
   margin-top: 10px;
 
   tbody {
@@ -165,6 +165,7 @@ input {
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
+
   span {
     margin-left: 20px;
     font-weight: normal;
@@ -182,4 +183,12 @@ input {
 
 .btn-margin-top {
   margin-top: 5px;
+}
+
+.error-message {
+  text-align: center;
+}
+.icon-size {
+  font-size: 150px;
+  text-align: center;
 }

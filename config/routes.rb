@@ -13,10 +13,16 @@ Rails.application.routes.draw do
   post   'courses/:id/likecourse',     to: 'likecourses#new', as: 'likecourse'
   post   'courses/:id/dislikecourse',  to: 'dislikecourses#new', as: 'dislikecourse'
 
+  # Handle contact us form
   get '/contacts', to: 'contacts#new'
   post '/contacts', to: 'contacts#create'
 
-  resources :users
+  # Handle error and redirect to proper error page
+  get '/404', to: 'errors#index', :via => :all
+  get '/422', to: 'errors#unprocessable', :via => :all
+  get '/500', to: 'errors#internal_server_error', :via => :all
+
+  resources :users, except: [:new, :create]
   resources :courses
   resources :categories
   resources :locations
