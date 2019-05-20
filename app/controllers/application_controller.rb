@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :onLoad
+  before_action :new_contact
 
   # on load main page, for the header drop down box
   def onLoad
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def new_contact
+    @contact = Contact.new
+  end
 
   def logged_in_user
     unless logged_in?

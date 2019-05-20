@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post   'courses/:id/likecourse',     to: 'likecourses#new', as: 'likecourse'
   post   'courses/:id/dislikecourse',  to: 'dislikecourses#new', as: 'dislikecourse'
 
+  get '/contacts', to: 'contacts#new'
+  post '/contacts', to: 'contacts#create'
+
   resources :users
   resources :courses
   resources :categories
