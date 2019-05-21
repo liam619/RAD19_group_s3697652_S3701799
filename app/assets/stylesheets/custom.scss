@@ -32,6 +32,59 @@ footer {
   }
 }
 
+@mixin hover {
+  &:hover:before {
+    transform: scale(1, 1);
+    text-indent: 0;
+  }
+}
+
+@mixin before($iconvalue) {
+  &:before {
+    content: $iconvalue;
+    font-family: FontAwesome;
+    position: absolute;
+    transform: scale(0, 1);
+  }
+}
+
+.youtubeIcon {
+  @include before("\f167");
+  @include hover;
+}
+
+.twitterIcon {
+  @include before("\f099");
+  @include hover;
+}
+
+.facebookIcon {
+  @include before("\f09a");
+  @include hover;
+}
+
+.instaIcon {
+  @include before("\f16d");
+  @include hover;
+}
+
+.skypeIcon {
+  @include before("\f17e");
+  @include hover;
+}
+
+.show-icon {
+  li {
+    &:hover {
+      text-indent: 17px;
+
+      &:before {
+        transform: scale(1, 1);
+        left: 17px;
+      }
+    }
+  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -63,11 +116,12 @@ p {
 }
 
 .input_box {
-  border: 0;
+  border: 0 {
+    radius: 4px;
+    bottom: 1px solid #ccc;
+  }
   padding: 7px 0;
-  border-bottom: 1px solid #ccc;
   width: 100%;
-  border-radius: 4px;
   text-indent: 8px;
 }
 
@@ -130,8 +184,9 @@ input {
 
 .course_container {
   background-color: #cfcfcf;
-  border: 1px solid #2E2F30;
-  border-radius: 5px;
+  border: 1px solid #2E2F30 {
+    radius: 5px;
+  }
   padding: 20px;
 }
 
@@ -162,16 +217,6 @@ input {
   text-align: right;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
 #session_remember_me {
   width: auto;
   margin-left: 0;
@@ -189,6 +234,7 @@ input {
 .error-message {
   text-align: center;
 }
+
 .icon-size {
   font-size: 150px;
   text-align: center;
