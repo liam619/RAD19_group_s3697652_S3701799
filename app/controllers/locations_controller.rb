@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
 
+  before_action :logged_in_user, only: [:new, :create]
+
   def show
     @location = Location.find(params[:id])
     @courses = @location.courses

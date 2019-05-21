@@ -11,12 +11,12 @@ User.create!(name: "William Low",
              password: "@123Qwerty",
              password_confirmation: "@123Qwerty")
 
-rad = Course.new(name: 'Rapid Application Development', user_id: 1, description: 'This is sample')
-capstone = Course.new(name: 'Capstone Project', user_id: 1, description: 'This is sample')
-webPro = Course.new(name: 'Web Programming', user_id: 1, description: 'This is sample')
-advPro = Course.new(name: 'Advance Programming', user_id: 1, description: 'This is sample')
-ios = Course.new(name: 'Advanced iOS/OSX Programming', user_id: 1, description: 'This is sample')
-exp3year = Course.new(name: '3 years iOS or relevant experience', user_id: 1, description: 'This is sample')
+rad = Course.new(name: 'Rapid Application Development', user_id: 1, description: 'This is sample Rapid Application Development for RMIT university')
+capstone = Course.new(name: 'Capstone Project', user_id: 1, description: 'This is sample Capstone Project for RMIT university')
+webPro = Course.new(name: 'Web Programming', user_id: 1, description: 'This is sample Web Programming for RMIT university')
+advPro = Course.new(name: 'Advance Programming', user_id: 1, description: 'This is sample Advance Programming for RMIT university')
+ios = Course.new(name: 'Advanced iOS/OSX Programming', user_id: 1, description: 'This is sample Advanced iOS/OSX Programming for RMIT university')
+exp3year = Course.new(name: '3 years iOS or relevant experience', user_id: 1, description: 'This is sample industrial requirement for RMIT university')
 
 webDev = Category.create!(name: 'Web Development')
 fullStackDev = Category.create!(name: 'Full Stack Dev')
@@ -51,9 +51,9 @@ exp3year.locations << location1
 webPro.locations << location2
 advPro.locations << location3
 
-rad.save
-capstone.save
-webPro.save
-advPro.save
-ios.save
-exp3year.save
+rad.save(validate: true)
+capstone.save(validate: true)
+webPro.save(validate: true)
+advPro.save(validate: true)
+ios.save(validate: true)
+exp3year.save(validate: true)

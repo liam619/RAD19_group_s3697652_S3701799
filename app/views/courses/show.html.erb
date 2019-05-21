@@ -8,12 +8,12 @@
     <% if @course.prerequisites.exists? %>
       <p><b>Prerequisites :</b>
         <% @course.prerequisites.each do |pre| %>
-          <%= link_to pre.name, course_path(pre.id), class: "btn btn-primary btn-sm btn-margin-top" %>
+          <%= link_to pre.name, course_path(pre.id), class: "btn btn-primary btn-sm btn-margin" %>
         <% end %>
       </p>
     <% end %>
   </div>
-  <div class="col-md-3 edit-button">
+  <div class="col-md-2 edit-button">
     <%= link_to "Edit this course", edit_course_path, class: "btn btn-danger btn-sm" %>
   </div>
 </div>
