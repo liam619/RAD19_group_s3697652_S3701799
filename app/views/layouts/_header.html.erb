@@ -23,6 +23,9 @@
               <% if logged_in? %>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Create Category", new_category_path %></li>
+                <% if is_admin? %>
+                  <li><%= link_to "List all Category", categories_path %></li>
+                <% end %>
               <% end %>
             </ul>
           </li>
@@ -38,6 +41,9 @@
               <% if logged_in? %>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Create Location", new_location_path %></li>
+                <% if is_admin? %>
+                  <li><%= link_to "List all location", locations_path %></li>
+                <% end %>
               <% end %>
             </ul>
           </li>

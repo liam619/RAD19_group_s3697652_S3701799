@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # route for like/dislike course
   post   'courses/:id/likecourse',     to: 'likecourses#new', as: 'likecourse'
   post   'courses/:id/dislikecourse',  to: 'dislikecourses#new', as: 'dislikecourse'
+  delete 'courses/:id/rating', to: 'courses#reset', as: 'reset'
 
   # Handle contact us form
   get '/contacts', to: 'contacts#new'

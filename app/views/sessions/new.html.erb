@@ -6,7 +6,7 @@
     <%= form_for(:session, url: login_path) do |form| %>
 
       <%= form.label :email %>
-      <%= form.email_field :email, class: 'input_box form-control' %>
+      <%= form.text_field :email, class: 'input_box form-control' %>
 
       <%= form.label :password %>
       <%= form.password_field :password, class: 'input_box form-control' %>

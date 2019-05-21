@@ -6,10 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.new(name: "Administrator RMIT",
+             email: "admin",
+             password: "password",
+             password_confirmation: "password",
+             admin: true).save(validate: false)
+
 User.create!(name: "William Low",
              email: "william.low@rmit.edu.au",
              password: "@123Qwerty",
-             password_confirmation: "@123Qwerty")
+             password_confirmation: "@123Qwerty",
+             admin: false)
 
 rad = Course.new(name: 'Rapid Application Development', user_id: 1, description: 'This is sample Rapid Application Development for RMIT university')
 capstone = Course.new(name: 'Capstone Project', user_id: 1, description: 'This is sample Capstone Project for RMIT university')

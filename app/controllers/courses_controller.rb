@@ -1,9 +1,11 @@
 class CoursesController < ApplicationController
 
   before_action :course_owner, only: [:edit, :update]
+  before_action :logged_in_admin, only: [:destroy]
 
   def show
     @course = Course.find(params[:id])
+    @hide_for_show = true
   end
 
   def index
@@ -48,6 +50,32 @@ class CoursesController < ApplicationController
       redirect_to course_path(@course.id)
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    course = Course.find(params[:id]).destroy
+    flash[:success] = "#{course.name} removed."
+    redirect_to courses_path
+  end
+
+  def reset
+    course = Course.find(params[:id])
+
+    if course.like_courses.count > 0 || course.dislike_courses.count > 0
+      course.like_courses.each do |like|
+        like.destroy
+      end
+
+      course.dislike_courses.each do |dislike|
+        dislike.destroy
+      end
+
+      flash[:success] = "#{course.name} rating reset to 0."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:danger] = "#{course.name}, nobody have opinions on this course yet."
+      redirect_back(fallback_location: root_path)
     end
   end
 

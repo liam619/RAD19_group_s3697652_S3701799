@@ -4,7 +4,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-7">
+  <div class="col-md-6">
     <% if @course.prerequisites.exists? %>
       <p><b>Prerequisites :</b>
         <% @course.prerequisites.each do |pre| %>
@@ -13,40 +13,17 @@
       </p>
     <% end %>
   </div>
-  <div class="col-md-2 edit-button">
+  <div class="col-md-3 edit-button">
+    <% if is_admin? %>
+      <%= link_to "Delete", course_path(@course.id), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
     <%= link_to "Edit this course", edit_course_path, class: "btn btn-danger btn-sm" %>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-9 course_container">
-    <p>
-      <b>Category : </b>
-      <% @course.categories.each do |category| %>
-        <%= link_to category.name, category, class: "btn btn-info btn-xs" %>
-      <% end %>
-    </p>
-    <p>
-      <b>Location : </b>
-      <% @course.locations.each do |local| %>
-        <%= link_to local.name, local, class: "btn btn-info btn-xs" %>
-      <% end %>
-    </p>
-    <p>
-      <b>Course Description : </b><br>
-      <%= @course.description %>
-    </p>
-    <p>
-      Created <%= time_ago_in_words(@course.created_at) %>
-    </p>
-    <p class="p-align-right">
-      <%= link_to dislikecourse_path(@course.id), method: :post, class: validateLogin, title: "Dislike" do %>
-        <%= fa_icon "thumbs-down", text: "#{do_count("dislike", @course.id)}" %>
-      <% end %>
-      <%= link_to likecourse_path(@course.id), method: :post, class: validateLogin, title: "Like" do %>
-        <%= fa_icon "thumbs-up", text: "#{do_count("like", @course.id)}" %>
-      <% end %>
-    </p>
+    <%= render "shared/course_details", option: @course %>
   </div>
   <div class="col-md-3 text-center">
     <%= link_to @course.user do %>

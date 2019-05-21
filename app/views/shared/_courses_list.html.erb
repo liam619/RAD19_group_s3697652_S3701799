@@ -6,7 +6,7 @@
   <% @courses.each do |c| %>
     <div class="row">
       <div class="col-md-3 text-center">
-        <% unless @hide_view %>
+        <% unless @hide_for_view %>
           <%= link_to c.user do %>
             <p><%= gravatar_for(c.user, {size: 180}) %></p>
             <p><h5>COORDINATOR : <%= c.user.name %></h5></p>
@@ -14,37 +14,7 @@
         <% end %>
       </div>
       <div class="col-md-6 course_container">
-        <h4><%= link_to c.name, course_path(c.id) %></h4>
-        <p>
-          <b>Prerequisite :</b>
-          <% c.prerequisites.each do |pre| %>
-            <%= link_to pre.name, course_path(pre.id), class: "btn btn-info btn-xs" %>
-          <% end %>
-        </p>
-        <% unless @hide_view %>
-          <p>
-            <b>Category :</b>
-            <% c.categories.each do |category| %>
-              <%= link_to category.name, category, class: "btn btn-info btn-xs" %>
-            <% end %>
-          </p>
-          <p>
-            <b>Location :</b>
-            <% c.locations.each do |local| %>
-              <%= link_to local.name, local, class: "btn btn-info btn-xs" %>
-            <% end %>
-          </p>
-        <% end %>
-        <p>Created <%= time_ago_in_words(c.created_at) %></p>
-
-        <p class="p-align-right">
-          <%= link_to dislikecourse_path(c.id), method: :post, class: validateLogin, title: "Dislike" do %>
-            <%= fa_icon "thumbs-down", text: "#{do_count("dislike", c.id)}" %>
-          <% end %>
-          <%= link_to likecourse_path(c.id), method: :post, class: validateLogin, title: "Like" do %>
-            <%= fa_icon "thumbs-up", text: "#{do_count("like", c.id)}" %>
-          <% end %>
-        </p>
+        <%= render 'shared/course_details', option: c %>
       </div>
       <div class="col-md-3">
         <!--Add image later-->

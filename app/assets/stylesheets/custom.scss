@@ -201,12 +201,21 @@ input {
 .table {
   border: 1px solid #ddd;
   margin-top: 10px;
+  
+  thead {
+    tr {
+      th {
+        text-align: center;
+      }
+    }
+  }
 
   tbody {
     tr {
       td {
         font-size: 15px;
         vertical-align: inherit;
+        text-align: center;
         //font-family: "Times New Roman", Times, serif;
       }
     }
@@ -223,7 +232,7 @@ input {
 }
 
 .edit-button {
-  margin-left: 15px;
+  margin-left: 10px;
   text-align: right;
 }
 
@@ -238,4 +247,11 @@ input {
 .icon-size {
   font-size: 150px;
   text-align: center;
+}
+
+.checkbox {
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
 }

@@ -1,5 +1,8 @@
+<div class="btm-line">
+  <h1><%= title %></h1>
+</div>
 <ul class="nav nav-tabs">
-  <% _var = request.fullpath.include?('/categories/') || request.fullpath.include?('/locations/')? request.fullpath : '' %>
+  <% _var = request.fullpath.include?('/categories/') || request.fullpath.include?('/locations/') ? request.fullpath : '' %>
   <li class="<%= is_active?(['/courses', _var]) %>"><%= link_to "Courses", courses_path %></li>
   <li class="<%= is_active?('/users') %>"><%= link_to "Coordinators", users_path %></li>
 </ul>
