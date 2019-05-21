@@ -51,9 +51,9 @@ exp3year.locations << location1
 webPro.locations << location2
 advPro.locations << location3
 
-rad.save
-capstone.save
-webPro.save
-advPro.save
-ios.save
-exp3year.save
+rad.save(validate: true)
+capstone.save(validate: true)
+webPro.save(validate: true)
+advPro.save(validate: true)
+ios.save(validate: true)
+exp3year.save(validate: true)
