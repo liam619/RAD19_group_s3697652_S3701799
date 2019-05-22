@@ -102,12 +102,16 @@ class CoursesController < ApplicationController
   end
 
   # Ensure non course owner unable to edit the course that not belong to them
+  # Admin bypass and allow to edit / update course
   def course_owner
     @course = Course.find(params[:id])
     user = User.find(@course.user_id)
-    if !current_user?(user)
-      flash[:danger] = "You are not authorized to edit this course."
-      redirect_back(fallback_location: root_path)
+
+    unless is_admin?
+      if !current_user?(user)
+        flash[:danger] = "You are not authorized to edit this course."
+        redirect_back(fallback_location: root_path)
+      end
     end
   end
 end

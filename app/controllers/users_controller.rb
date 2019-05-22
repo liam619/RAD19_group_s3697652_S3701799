@@ -57,8 +57,11 @@ class UsersController < ApplicationController
   end
 
   # Confirm current user
+  # Admin bypass to allow edit / update user
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    unless is_admin?
+      redirect_to(root_url) unless current_user?(@user)
+    end
   end
 end
