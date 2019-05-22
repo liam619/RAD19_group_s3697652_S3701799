@@ -2,6 +2,11 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
+setup do
+    @user = users(:example)
+    log_in_as(@user)
+  end
+  
     test "layout links" do
         get root_path
         assert_template 'static_pages/home'
