@@ -1,5 +1,5 @@
 <div class="btm-line">
-  <h1>Create a new <%= title %></h1>
+  <h1><%= title %></h1>
 </div>
 
 <%= render 'shared/error_messages', option: option %>
@@ -9,7 +9,7 @@
       <%= form.label :name %>
       <%= form.text_field :name, class: "input_box form-control", placeholder: placeH %>
 
-      <%= form.submit "Create new #{title}", class: "btn btn-primary" %>
+      <%= form.submit btn, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
