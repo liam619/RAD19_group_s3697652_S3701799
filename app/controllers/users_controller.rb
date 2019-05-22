@@ -11,8 +11,9 @@ class UsersController < ApplicationController
     @hide_for_view = true
   end
 
+  # Index will not display admin user
   def index
-    @users = User.all
+    @users = User.all.where(admin: false)
   end
 
   def new

@@ -201,22 +201,17 @@ input {
 .table {
   border: 1px solid #ddd;
   margin-top: 10px;
-  
-  thead {
-    tr {
-      th {
-        text-align: center;
-      }
-    }
-  }
 
   tbody {
     tr {
       td {
         font-size: 15px;
         vertical-align: inherit;
-        text-align: center;
         //font-family: "Times New Roman", Times, serif;
+
+        a {
+           margin-left: 8px;
+        }
       }
     }
   }
