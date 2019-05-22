@@ -23,10 +23,13 @@
   </p>
 <% end %>
 
-<% if @hide_for_show %>
+<% unless !@hide_for_show %>
   <p>
     <b>Course Description : </b><br>
     <%= option.description %>
+  </p>
+  <p>
+    <%= image_tag option.image, class: 'img-thumbnail' %>
   </p>
 <% else %>
   <p>Created <%= time_ago_in_words(option.created_at) %></p>
