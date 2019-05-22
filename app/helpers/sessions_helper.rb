@@ -41,6 +41,13 @@ module SessionsHelper
     end
   end
 
+  # Return true if the user is admin
+  def is_admin?
+    if logged_in?
+      current_user.admin?
+    end
+  end
+
   # Returns true if the user is current user
   def current_user?(user)
     user == current_user
@@ -55,7 +62,7 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
-  # For liked and unliked button
+  # For liked and disliked button
   def validateLogin
     (!current_user.nil?) ? 'btn' : 'btn disabled'
   end

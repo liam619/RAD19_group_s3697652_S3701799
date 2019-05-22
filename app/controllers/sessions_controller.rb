@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  def new
-  end
+
+  before_action :non_user, only: [:new, :create]
 
   def create
     @user = User.find_by(email: params[:session][:email].downcase)

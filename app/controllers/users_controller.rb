@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
 
+  before_action :non_user, only: [:new, :create]
   before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_admin, only: [:destroy]
 
   def show
     @user = User.find(params[:id])
     @courses = @user.courses
     # Hide certain details from User view profile page
-    @hide_view = true
+    @hide_for_view = true
   end
 
+  # Index will not display admin user
   def index
-    @users = User.all
+    @users = User.all.where(admin: false)
   end
 
   def new
@@ -41,14 +44,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id]).destroy
+    flash[:success] = "#{user.name} removed."
+    redirect_to users_path
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
+  # Confirm current user
+  # Admin bypass to allow edit / update user
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    unless is_admin?
+      redirect_to(root_url) unless current_user?(@user)
+    end
   end
 end

@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   #post '/locations', to: 'locations#create'
 
   # route for like/dislike course
-  post   'courses/:id/likecourse',     to: 'likecourses#new', as: 'likecourse'
-  post   'courses/:id/dislikecourse',  to: 'dislikecourses#new', as: 'dislikecourse'
+  post 'courses/:id/likecourse', to: 'likecourses#new', as: 'likecourse'
+  post 'courses/:id/dislikecourse', to: 'dislikecourses#new', as: 'dislikecourse'
+  delete 'courses/:id/rating', to: 'courses#reset', as: 'reset'
 
   # Handle contact us form
   get '/contacts', to: 'contacts#new'
@@ -33,5 +34,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :locations
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: {format: :json} do
+    resources :api_courses, except: [:new, :create, :destroy]
+  end
+
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
