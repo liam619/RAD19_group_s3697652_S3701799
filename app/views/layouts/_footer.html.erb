@@ -1,31 +1,7 @@
 <footer class="footer">
-  <div class="row">
-    <div class="col-xs-6 col-sm-3">
-      <h4>Contact Us</h4>
-      <%= render 'contacts/form' %>
-    </div>
-    <div class="col-xs-6 col-sm-3">
-      <h4>General Inquiries</h4>
-    </div>
-    <div class="col-xs-6 col-sm-3">
-      <h4>Useful Links</h4>
-
-      <ul class="list-group">
-        <li> <%= link_to "RMIT Course", "#" %> </li>
-        <li> <%= link_to "RMIT Help Desk", "#" %> </li>
-        <li> <%= link_to "RMIT International", "#" %> </li>
-      </ul>
-    </div>
-    <div class="col-xs-6 col-sm-3">
-      <h4>Media</h4>
-
-      <ul class="list-group show-icon">
-        <li class="youtubeIcon"><%= link_to "YouTube", "#" %></li>
-        <li class="twitterIcon"><%= link_to "Twitter", "#" %></li>
-        <li class="facebookIcon"><%= link_to "Facebook", "#" %></li>
-        <li class="instaIcon"><%= link_to "Instagram", "#" %></li>
-        <li class="skypeIcon"><%= link_to "Skype", "#" %></li>
-      </ul>
-    </div>
+  <div class="text-center">
+    <ul class="list-group show-icon">
+      <li class="icon"><%= link_to "Contact Us", new_contact_path %></li>
+    </ul>
   </div>
 </footer>

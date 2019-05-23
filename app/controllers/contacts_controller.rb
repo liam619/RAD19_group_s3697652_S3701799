@@ -1,5 +1,9 @@
 class ContactsController < ApplicationController
 
+  def new
+    @contact = Contact.new
+  end
+
   def create
     @contact = Contact.new(contact_params)
 
@@ -8,8 +12,7 @@ class ContactsController < ApplicationController
       flash[:success] = "Your inquiries/feedback have been sent to the site of admin. Thank you."
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "Failed to send message, please try again."
-      redirect_back(fallback_location: root_path)
+      render 'new'
     end
   end
 

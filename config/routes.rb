@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :categories
   resources :locations
+  resources :contacts, except: [:destroy, :patch, :update]
 
   namespace :api, defaults: {format: :json} do
     resources :api_courses, param: :name, except: [:new, :create, :destroy]
