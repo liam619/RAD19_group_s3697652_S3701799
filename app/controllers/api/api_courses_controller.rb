@@ -1,7 +1,7 @@
 class Api::ApiCoursesController < ApiController
 
   def show
-    render json: @course = Course.find(params[:id])
+    render json: @course = Course.where(["name like ?", "%#{params[:name]}%"])
   end
 
   def index

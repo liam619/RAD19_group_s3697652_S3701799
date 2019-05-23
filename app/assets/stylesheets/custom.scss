@@ -25,7 +25,11 @@ textarea {
 footer {
   margin-top: 50px;
   padding: 20px;
-  border-top: 1px solid #eaeaea;
+
+  border: {
+    top: 1px solid #eaeaea;
+    bottom: 1px solid #eaeaea;
+  }
 
   ul {
     list-style: none;
@@ -35,7 +39,7 @@ footer {
 @mixin hover {
   &:hover:before {
     transform: scale(1, 1);
-    text-indent: 0;
+    text-indent: -15px;
   }
 }
 
@@ -48,39 +52,18 @@ footer {
   }
 }
 
-.youtubeIcon {
-  @include before("\f167");
-  @include hover;
-}
-
-.twitterIcon {
-  @include before("\f099");
-  @include hover;
-}
-
-.facebookIcon {
-  @include before("\f09a");
-  @include hover;
-}
-
-.instaIcon {
-  @include before("\f16d");
-  @include hover;
-}
-
-.skypeIcon {
-  @include before("\f17e");
+.icon {
+  @include before("\f1d8");
   @include hover;
 }
 
 .show-icon {
   li {
     &:hover {
-      text-indent: 17px;
+      text-indent: 20px;
 
       &:before {
         transform: scale(1, 1);
-        left: 17px;
       }
     }
   }
