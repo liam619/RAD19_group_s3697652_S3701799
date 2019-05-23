@@ -22,12 +22,12 @@ User.create!(name: "Syed Hariz",
              password: "Pass123!",
              password_confirmation: "Pass123!")
 
-rad = Course.new(name: 'Rapid Application Development', user_id: 1, description: 'This is sample Rapid Application Development for RMIT university')
-capstone = Course.new(name: 'Capstone Project', user_id: 1, description: 'This is sample Capstone Project for RMIT university')
-webPro = Course.new(name: 'Web Programming', user_id: 1, description: 'This is sample Web Programming for RMIT university')
-advPro = Course.new(name: 'Advance Programming', user_id: 1, description: 'This is sample Advance Programming for RMIT university')
-ios = Course.new(name: 'Advanced iOS/OSX Programming', user_id: 1, description: 'This is sample Advanced iOS/OSX Programming for RMIT university')
-exp3year = Course.new(name: '3 years iOS or relevant experience', user_id: 1, description: 'This is sample industrial requirement for RMIT university')
+rad = Course.new(name: 'Rapid Application Development', user_id: 2, description: 'This is sample Rapid Application Development for RMIT university')
+capstone = Course.new(name: 'Capstone Project', user_id: 2, description: 'This is sample Capstone Project for RMIT university')
+webPro = Course.new(name: 'Web Programming', user_id: 2, description: 'This is sample Web Programming for RMIT university')
+advPro = Course.new(name: 'Advance Programming', user_id: 2, description: 'This is sample Advance Programming for RMIT university')
+ios = Course.new(name: 'Advanced iOS/OSX Programming', user_id: 2, description: 'This is sample Advanced iOS/OSX Programming for RMIT university')
+exp3year = Course.new(name: '3 years iOS or relevant experience', user_id: 2, description: 'This is sample industrial requirement for RMIT university')
 
 webDev = Category.create!(name: 'Web Development')
 fullStackDev = Category.create!(name: 'Full Stack Dev')
