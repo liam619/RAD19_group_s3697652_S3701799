@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :locations
 
   namespace :api, defaults: {format: :json} do
-    resources :api_courses, except: [:new, :create, :destroy]
+    resources :api_courses, param: :name, except: [:new, :create, :destroy]
   end
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
