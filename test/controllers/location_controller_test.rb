@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class LocationControllerTest < ActionDispatch::IntegrationTest
-  #include Devise::Test::IntegrationHelpers
 
   setup do
     @user = users(:example)
@@ -14,8 +13,8 @@ class LocationControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get locations_path
+    get new_location_url
     assert_response :success
   end
-
+  
 end
