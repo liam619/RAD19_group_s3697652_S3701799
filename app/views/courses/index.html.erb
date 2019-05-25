@@ -1,2 +1,7 @@
-<%= render 'shared/navbar', title: 'All Courses' %>
+<% provide(:title, "All Courses") %>
+<div class="btm-line">
+  <h1><%= yield :title %></h1>
+</div>
+
+<%= render 'shared/navbar' %>
 <%= render 'shared/courses_list' %>

@@ -1,2 +1,0 @@
-module DislikecoursesHelper
-end
