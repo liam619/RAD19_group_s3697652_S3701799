@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :locations
   resources :contacts, except: [:destroy, :patch, :update]
+  #resources :errors
 
   namespace :api, defaults: {format: :json} do
     resources :api_courses, param: :name, except: [:new, :create, :destroy]
