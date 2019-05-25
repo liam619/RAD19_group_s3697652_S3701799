@@ -25,13 +25,49 @@ textarea {
 footer {
   margin-top: 50px;
   padding: 20px;
-  border-top: 1px solid #eaeaea;
+
+  border: {
+    top: 1px solid #eaeaea;
+    bottom: 1px solid #eaeaea;
+  }
 
   ul {
     list-style: none;
   }
 }
 
+@mixin hover {
+  &:hover:before {
+    transform: scale(1, 1);
+    text-indent: -15px;
+  }
+}
+
+@mixin before($iconvalue) {
+  &:before {
+    content: $iconvalue;
+    font-family: FontAwesome;
+    position: absolute;
+    transform: scale(0, 1);
+  }
+}
+
+.icon {
+  @include before("\f1d8");
+  @include hover;
+}
+
+.show-icon {
+  li {
+    &:hover {
+      text-indent: 20px;
+
+      &:before {
+        transform: scale(1, 1);
+      }
+    }
+  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -63,11 +99,13 @@ p {
 }
 
 .input_box {
-  border: 0;
+  border: 0 {
+    radius: 4px;
+    bottom: 1px solid #ccc;
+  }
   padding: 7px 0;
-  border-bottom: 1px solid #ccc;
   width: 100%;
-  border-radius: 4px;
+  text-indent: 8px;
 }
 
 input[type=text]:focus, textarea:focus, input[type=email]:focus, input[type=password]:focus {
@@ -129,8 +167,9 @@ input {
 
 .course_container {
   background-color: #cfcfcf;
-  border: 1px solid #2E2F30;
-  border-radius: 5px;
+  border: 1px solid #2E2F30 {
+    radius: 5px;
+  }
   padding: 20px;
 }
 
@@ -142,8 +181,8 @@ input {
   }
 }
 
-.table{
-  border : 1px solid #ddd;
+.table {
+  border: 1px solid #ddd;
   margin-top: 10px;
 
   tbody {
@@ -152,6 +191,10 @@ input {
         font-size: 15px;
         vertical-align: inherit;
         //font-family: "Times New Roman", Times, serif;
+
+        a {
+           margin-left: 8px;
+        }
       }
     }
   }
@@ -159,4 +202,34 @@ input {
 
 .p-align-right {
   text-align: right;
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.edit-button {
+  margin-left: 10px;
+  text-align: right;
+}
+
+.btn-margin {
+  margin-bottom: 3px;
+}
+
+.error-message {
+  text-align: center;
+}
+
+.icon-size {
+  font-size: 150px;
+  text-align: center;
+}
+
+.checkbox {
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
 }

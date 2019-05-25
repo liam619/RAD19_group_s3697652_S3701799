@@ -1,0 +1,38 @@
+<% provide(:title, @course.name) %>
+<div class="btm-line">
+  <h1><%= yield :title %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <% if @course.prerequisites.exists? %>
+      <p><b>Prerequisites :</b>
+        <% @course.prerequisites.each do |pre| %>
+          <%= link_to pre.name, course_path(pre.id), class: "btn btn-primary btn-sm btn-margin" %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-md-3 edit-button">
+    <% if is_admin? %>
+      <%= link_to "Delete", course_path(@course.id), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
+    <%= link_to "Edit this course", edit_course_path, class: "btn btn-danger btn-sm" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-9 course_container">
+    <%= render "shared/course_details", option: @course %>
+  </div>
+  <div class="col-md-3 text-center">
+    <%= link_to @course.user do %>
+      <p><%= gravatar_for(@course.user, {size: 180}) %></p>
+      <p><h5>Brought to you by : <%= @course.user.name %></h5></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <%= link_to "Return to Course List", courses_path, class: "btn btn-success btn-sm" %>
+</div>

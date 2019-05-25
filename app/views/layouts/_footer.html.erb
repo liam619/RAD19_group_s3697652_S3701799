@@ -1,37 +1,7 @@
 <footer class="footer">
-    <div class="row">
-        <div class="col-xs-6 col-sm-3">
-            <h4>Contact Us</h4>
-
-            <%= form_with url: "#" do |form| %>
-                <%= form.text_field :name, class: "input_box", placeholder: "Name" %>
-                <%= form.email_field :email, placeholder: "Email", class: "input_box" %>
-                <%= form.text_area :message, placeholder: "Message", size: "5x5", class: "input_box" %>
-                <%= form.submit :Send, class: "btn btn-danger" %>
-            <% end %>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <h4>General Inquiries</h4>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <h4>Useful Links</h4>
-
-            <ul class="list-group">
-                <li> <%= link_to "RMIT Course", "#" %> </li>
-                <li> <%= link_to "RMIT Help Desk", "#" %> </li>
-                <li> <%= link_to "RMIT International", "#" %> </li>
-            </ul>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <h4>Media</h4>
-
-            <ul class="list-group">
-                <li> <%= link_to "YouTube", "#" %> </li>
-                <li> <%= link_to "Twitter", "#" %> </li>
-                <li> <%= link_to "Facebook", "#" %> </li>
-                <li> <%= link_to "Instagram", "#" %> </li>
-                <li> <%= link_to "Skype", "#" %> </li>
-            </ul>
-        </div>
-    </div>
+  <div class="text-center">
+    <ul class="list-group show-icon">
+      <li class="icon"><%= link_to "Contact Us", new_contact_path %></li>
+    </ul>
+  </div>
 </footer>

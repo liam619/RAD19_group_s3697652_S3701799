@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190425102126) do
+ActiveRecord::Schema.define(version: 20190521092922) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20190425102126) do
     t.integer "category_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -30,11 +38,6 @@ ActiveRecord::Schema.define(version: 20190425102126) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "courses_categories", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "category_id"
   end
 
   create_table "courses_locations", force: :cascade do |t|
@@ -45,6 +48,26 @@ ActiveRecord::Schema.define(version: 20190425102126) do
   create_table "courses_prerequisites", force: :cascade do |t|
     t.integer "course_id"
     t.integer "prerequisite_id"
+  end
+
+  create_table "dislike_courses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_dislike_courses_on_course_id"
+    t.index ["user_id", "course_id"], name: "index_dislike_courses_on_user_id_and_course_id", unique: true
+    t.index ["user_id"], name: "index_dislike_courses_on_user_id"
+  end
+
+  create_table "like_courses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_like_courses_on_course_id"
+    t.index ["user_id", "course_id"], name: "index_like_courses_on_user_id_and_course_id", unique: true
+    t.index ["user_id"], name: "index_like_courses_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -64,6 +87,8 @@ ActiveRecord::Schema.define(version: 20190425102126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin", default: false
   end
 
 end
