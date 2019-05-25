@@ -3,6 +3,7 @@ require 'test_helper'
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
 setup do
+    @locations = locations(:one)
     @user = users(:example)
     log_in_as(@user)
   end
