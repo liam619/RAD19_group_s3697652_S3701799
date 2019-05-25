@@ -4,7 +4,7 @@ one:
   name: MyString
   user_id: 1
   description: MyText
-  image: MyString
+  image: 7.megabytes
 
 two:
   name: MyString
