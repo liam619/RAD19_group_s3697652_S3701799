@@ -4,3 +4,10 @@ example:
   name: example
   email: example.test@rmit.edu.au
   password_digest: <%= User.digest('Password95!') %>
+  admin: true
+  
+notadmin:
+  name: Not Admin
+  email: not.admin@rmit.edu.au
+  password_digest: <%= User.digest('password') %>
+  
