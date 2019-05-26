@@ -12,7 +12,7 @@ setup do
         get root_path
         assert_template 'static_pages/home'
         assert_select "a[href=?]", root_path
-        assert_select "a[href=?]", new_contact_path
+        assert_select "a[href=?]", contacts_path
         assert_select "a[href=?]", courses_path
         assert_select "a[href=?]", signup_path
 
