@@ -7,7 +7,7 @@ Minitest::Reporters.use!
 class ActiveSupport::TestCase
   # Define here as other test class will inherit this class
   def setup
-    @base_title = "Assignment1"
+    @base_title = "YourCourse"
   end
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
