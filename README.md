@@ -1,10 +1,18 @@
 # README
 
 This README file contains information of the project under ## Project Information and how to start the project under ## Getting Started. 
-At the end of this file contains directories to heroku logs under ## Heroku logs and toggl summary report under ## Toggl report
-by team members of this project S3697652 (William Low) & S3701799 (Syed Hariz).
+At the end of this file contains directories to heroku logs under ## Heroku logs and toggl summary report under ## Toggl report.
 
 ## Project Information
+
+TEAM MEMBERS: 
+S3697652 (William Low) & S3701799 (Syed Hariz)
+
+Highest Level attempted: 
+90+
+
+Heroku URL: 
+https://sheltered-scrubland-60869.herokuapp.com/
 
 Ruby version
   ruby 2.6.0p0 (2018-12-25 revision 66547)
