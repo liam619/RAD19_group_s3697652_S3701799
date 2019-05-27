@@ -10,10 +10,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  
-  #location
-  #get '/locations', to: 'locations#new'
-  #post '/locations', to: 'locations#create'
 
   # route for like/dislike course
   post 'courses/:id/likecourse', to: 'likecourses#new', as: 'likecourse'
@@ -29,11 +25,10 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unprocessable', :via => :all, as: :error422
   get '/500', to: 'errors#internal_server_error', :via => :all, as: :error500
 
-  resources :users#, except: [:new, :create]
+  resources :users
   resources :courses
   resources :categories
   resources :locations
-  #resources :errors
 
   namespace :api, defaults: {format: :json} do
     resources :api_courses, param: :name, except: [:new, :create, :destroy]
