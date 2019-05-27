@@ -81,3 +81,6 @@ Directory to HEROKU-LOGS: /RAD19_group_s3697652_S3701799/HEROKU-LOGS.md
 
 Toggl report by both team members can be viewed under: TOGGL-REPORT.pdf
 Directory to TOGGL-REPORT: /RAD19_group_s3697652_S3701799/TOGGL-REPORT.pdf
+
+Toggl detailed time entries by both team members can be viewed under: TOGGL-TIME-ENTRIES.pdf
+Directory to TOGGL-TIME-ENTRIES: /RAD19_group_s3697652_S3701799/TOGGL-TIME-ENTRIES.pdf
