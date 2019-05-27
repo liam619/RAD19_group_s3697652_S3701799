@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   post '/contacts', to: 'contacts#create'
 
   # Handle error and redirect to proper error page
-  get '/404', to: 'errors#index', :via => :all
-  get '/422', to: 'errors#unprocessable', :via => :all
-  get '/500', to: 'errors#internal_server_error', :via => :all
+  get '/404', to: 'errors#index', :via => :all, as: :error404
+  get '/422', to: 'errors#unprocessable', :via => :all, as: :error422
+  get '/500', to: 'errors#internal_server_error', :via => :all, as: :error500
 
   resources :users#, except: [:new, :create]
   resources :courses
