@@ -15,8 +15,12 @@ User.new(name: "Administrator RMIT",
 User.create!(name: "William Low",
              email: "william.low@rmit.edu.au",
              password: "@123Qwerty",
-             password_confirmation: "@123Qwerty",
-             admin: false)
+             password_confirmation: "@123Qwerty")
+             
+User.create!(name: "Syed Hariz",
+             email: "syed.hariz@rmit.edu.au",
+             password: "Pass123!",
+             password_confirmation: "Pass123!")
 
 rad = Course.new(name: 'Rapid Application Development', user_id: 2, description: 'This is sample Rapid Application Development for RMIT university')
 capstone = Course.new(name: 'Capstone Project', user_id: 2, description: 'This is sample Capstone Project for RMIT university')
