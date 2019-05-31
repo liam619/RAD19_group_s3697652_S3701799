@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ 
 gem 'rails',                    '5.1.6'
 gem 'bcrypt',                   '3.1.12'
 gem 'carrierwave',              '1.2.2'
